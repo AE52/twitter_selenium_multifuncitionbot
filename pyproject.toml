@@ -1,0 +1,66 @@
+[build-system]
+requires = ["hatchling>=1.24"]
+build-backend = "hatchling.build"
+
+[project]
+name = "twitter-selenium-multifunctionbot"
+version = "0.1.0"
+description = "A configurable Selenium automation toolkit for X/Twitter workflows without the developer API."
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [{name = "twitter_selenium_multifuncitionbot contributors"}]
+keywords = ["selenium", "twitter", "x", "automation", "bot"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Environment :: Console",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Internet :: WWW/HTTP :: Browsers",
+]
+dependencies = [
+  "click>=8.1",
+  "selenium>=4.20",
+  "webdriver-manager>=4.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.2",
+  "ruff>=0.5",
+  "mypy>=1.10",
+]
+
+[project.urls]
+Homepage = "https://github.com/open-source/twitter-selenium-multifunctionbot"
+Issues = "https://github.com/open-source/twitter-selenium-multifunctionbot/issues"
+
+[project.scripts]
+twitter-bot = "twitter_selenium_multifunctionbot.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/twitter_selenium_multifunctionbot"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+
+[tool.mypy]
+python_version = "3.10"
+strict = true
+warn_unused_ignores = true
+warn_return_any = true
+ignore_missing_imports = true
+exclude = ["python_twitter_bot"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+pythonpath = ["src"]
