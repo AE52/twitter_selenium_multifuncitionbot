@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+build/
+dist/
+.venv/
+venv/
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+*.log
+
+# Browsers and drivers
+chromedriver*
+geckodriver*
+msedgedriver*
+*.exe
+
+# Local automation state
+screenshots/
+downloads/
+*.sqlite3
